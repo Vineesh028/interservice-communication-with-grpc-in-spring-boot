@@ -1,0 +1,29 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package demo.interfaces.grpc;
+
+
+
+service EmployeeService {
+   
+    rpc getEmployeeByID (IDRequest) returns (Employee) {
+    }
+
+    rpc getEmployeeByCompany (CompanyRequest) returns (Employee) {
+    }
+}
+
+message IDRequest {
+    int64 employeeID = 1;
+}
+
+message CompanyRequest {
+    string companyName = 1;
+}
+
+message Employee {
+    int64 employeeID = 1;
+    string employeeFirstName = 2;
+    string employeeLastName = 3;
+    string companyName = 4;
+}
